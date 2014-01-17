@@ -1,0 +1,12 @@
+Package: fridge
+Type: Package
+Title: Data analyis project management with R
+Version: 0.2
+Date: 2013-03-27
+Author: Christian Zang
+Maintainer: Christian Zang <christian.zang@wzw.tum.de>
+Depends:
+    base
+Description: Some useful things for data projects, like caching data
+License: GPL-3
+LazyLoad: yes

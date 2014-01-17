@@ -1,0 +1,54 @@
+* fridge
+
+  _fridge_ is simplified approach to managing data analysis project in
+  R.
+
+** Background
+   =fridge= assumes that data analysis projects are managed using a
+   hierarchical folder structure. Helper functions are kept seperated
+   from the code that specifies the final models etc., in a =lib=
+   directory. 
+
+   Objects that need long computation times to be created are stored
+   as binary files (*.RData) in a =cache= directory and are perused if
+   needed rather than recreated each time the analyses are run.
+
+** Installation
+
+#+begin_src R
+install.packages("devtools")
+library(devtools)
+install_github("fridge", "znag")
+#+end_src
+
+** Setup
+   Create a =lib= directory inside the main project folder, and
+   populate with auxilliary code needed for e.g. munging data from
+   various sources, creating special plots, ...
+
+** Usage
+*** Caching
+    To create cached objects, use =freeze= for assignment and caching
+    in one step:
+
+#+begin_src R
+freeze("a_big_sum", sum(1:2000))
+#+end_src
+
+    This will assign =sum(1:2000)= to a new object =a_big_sum=, and
+    cache it for later use. The next time the exact same call is made
+    from the same or another script, the assignment is not evaluated,
+    but the cached object is loaded.
+
+*** Loading packages
+    As a shortcut for various lines of =library(...)=, =fridge= offers
+    the function =load_packages()=, which allows for loading various
+    packages in one line of code.
+
+*** Loading library functions
+    Auxilliary code from the =lib= directory can easily be =source=d
+    into the R session using =load_lib=, which can either load all
+    files from the =lib= folder (default), or only specified ones,
+    which have to be only referenced to by their base name without
+    extension.
+
