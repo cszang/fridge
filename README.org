@@ -46,7 +46,7 @@ freeze("a_big_sum", sum(1:2000))
     packages in one line of code.
 
 *** Loading library functions
-    Auxilliary code from the =lib= directory can easily be =source=d
+    Auxilliary code from the =lib= directory can easily be sourced
     into the R session using =load_lib=, which can either load all
     files from the =lib= folder (default), or only specified ones,
     which have to be only referenced to by their base name without
