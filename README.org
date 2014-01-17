@@ -1,6 +1,6 @@
 * fridge
 
-  _fridge_ is simplified approach to managing data analysis project in
+  _fridge_ is simplified approach to managing data analysis projects in
   R.
 
 ** Background
