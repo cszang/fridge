@@ -20,6 +20,8 @@ freeze <- function(object, expression, create = TRUE) {
 
   wd <- getwd()
   cache_dir <- file.path(wd, "cache")
+  if (!file.exists(cache_dir)) dir.create(cache_dir)
+  
   cache_file <- paste(file.path(cache_dir, object), ".rda", sep = "")
 
   if (file.exists(cache_file)) {
