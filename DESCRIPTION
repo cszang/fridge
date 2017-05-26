@@ -7,6 +7,8 @@ Author: Christian Zang
 Maintainer: Christian Zang <christian.zang@wzw.tum.de>
 Depends:
     base
+Imports:
+    digest
 Description: Some useful things for data projects, like caching data
 License: GPL-3
 LazyLoad: yes
