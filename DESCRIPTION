@@ -1,8 +1,8 @@
 Package: fridge
 Type: Package
 Title: Data analyis project management with R
-Version: 0.2
-Date: 2013-03-27
+Version: 0.3
+Date: 2017-05-26
 Author: Christian Zang
 Maintainer: Christian Zang <christian.zang@wzw.tum.de>
 Depends:
@@ -10,3 +10,4 @@ Depends:
 Description: Some useful things for data projects, like caching data
 License: GPL-3
 LazyLoad: yes
+RoxygenNote: 6.0.1

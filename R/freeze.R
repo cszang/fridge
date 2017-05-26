@@ -1,7 +1,7 @@
 ##' Assign value to variable if the value is not cached
 ##'
 ##' For saving time, objects can be cached under their object name
-##' with the ".RData" extension in a cache directory "/cache" under
+##' with the ".rda" extension in a cache directory "/cache" under
 ##' the current working directory. If a cached version of the variable
 ##' exists, do not recalculate the assigned part of the expression,
 ##' but rather use the cache. This differs from memoization as a
@@ -20,7 +20,7 @@ freeze <- function(object, expression, create = TRUE) {
 
   wd <- getwd()
   cache_dir <- file.path(wd, "cache")
-  cache_file <- paste(file.path(cache_dir, object), ".RData", sep = "")
+  cache_file <- paste(file.path(cache_dir, object), ".rda", sep = "")
 
   if (file.exists(cache_file)) {
     is_cached <- TRUE
