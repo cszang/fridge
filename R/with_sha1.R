@@ -42,15 +42,18 @@
   if (file.exists(sha1_file)) {
     sha1_x_stored <- readLines(sha1_file)[1]
     if (sha1_x_stored != sha1_x_current) {
-      warning("Checksum does not match with version of file read in previously.")
+      sha1_archive_file <- paste0(sha1_file, ".archive")
+      cat(sha1_x_stored, file = sha1_archive_file)
+      cat("\n", file = sha1_archive_file, append = TRUE)
+      warning("Checksum does not match with version of file read in previously. The previous checksum has been archived.")
     }
   } else {
     if (!file.exists(sha1_dir)) {
       dir.create(sha1_dir)
     }
-    cat(sha1_x_current, file = sha1_file)
-    cat("\n", file = sha1_file, append = TRUE)
   }
+  cat(sha1_x_current, file = sha1_file)
+  cat("\n", file = sha1_file, append = TRUE)    
 
   assign(deparse(name), x, pos = parent.frame())
   invisible()
