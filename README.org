@@ -40,6 +40,18 @@ freeze("a_big_sum", sum(1:2000))
     from the same or another script, the assignment is not evaluated,
     but the cached object is loaded.
 
+*** Compare checksums during assiging read in file
+    To assure that the object created while reading in data is
+    identical to previous runs of the analysis, the SHA1 sum of the
+    object can be stored and compared to the previous version. If the
+    SHA1 of the current object diverges from the SHA1 sum of the same
+    object from a previous run, a warning is issued and the old SHA1
+    sum is archived.
+
+#+begin_src R
+e %<c-% read_table("some_file.txt")
+#+end_src
+    
 *** Loading packages
     As a shortcut for various lines of =library(...)=, =fridge= offers
     the function =load_packages()=, which allows for loading various
