@@ -57,3 +57,22 @@ freeze <- function(object, expression, create = TRUE) {
 ##' @export
 assignifnotcached <- freeze
 
+##' Infix variant of \code{freeze}
+##'
+##' Does the same as \code{freeze}, but as infix operator.
+##'
+##' @param x unquoted expression naming variable to create
+##' @param value unquoted expression to evaluate the first time
+##'   \code{name} is accessed
+##'
+##' @export
+##' @rdname assign-freeze
+"%<f-%" <- function(x, value) {
+    name <- substitute(x)
+    value <- substitute(value)
+    
+    if (!is.name(name)) stop("Left-hand side must be a name")
+
+    freeze(deparse(name), value)
+    invisible()
+}

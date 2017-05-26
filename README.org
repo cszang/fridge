@@ -33,6 +33,8 @@ install_github("fridge", "znag")
 
 #+begin_src R
 freeze("a_big_sum", sum(1:2000))
+# the same as
+a_big_sum %<f-% sum(1:2000)
 #+end_src
 
     This will assign =sum(1:2000)= to a new object =a_big_sum=, and
