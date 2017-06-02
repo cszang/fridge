@@ -5,17 +5,15 @@
 \alias{assignifnotcached}
 \title{Assign value to variable if it is not cached}
 \usage{
-freeze(object, expression, create = TRUE)
+freeze(object, expression)
 
-assignifnotcached(object, expression, create = TRUE)
+assignifnotcached(object, expression)
 }
 \arguments{
 \item{object}{a string given the name of the variable to be
 assigned to}
 
 \item{expression}{the expression evaluating into the value to be assigned}
-
-\item{create}{shall a cache file be created (default TRUE)}
 }
 \value{
 nothing, invoked for side effects (assigning a value to a variable)

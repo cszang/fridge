@@ -28,8 +28,8 @@ install_github("fridge", "znag")
 
 ** Usage
 *** Caching
-    To create cached objects, use =freeze= for assignment and caching
-    in one step:
+    To create cached objects, use =freeze= or its infix operator
+    =%<f-%= for assignment and caching in one step:
 
 #+begin_src R
 freeze("a_big_sum", sum(1:2000))
@@ -40,7 +40,9 @@ a_big_sum %<f-% sum(1:2000)
     This will assign =sum(1:2000)= to a new object =a_big_sum=, and
     cache it for later use. The next time the exact same call is made
     from the same or another script, the assignment is not evaluated,
-    but the cached object is loaded.
+    but the cached object is loaded. It will also store the checksum of
+    the expression used to create the object and issue a warning when
+    the expression has changed from the cached version of the object.
 
 *** Compare checksums during assiging read in file
     To assure that the object created while reading in data is

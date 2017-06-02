@@ -10,48 +10,48 @@
 ##' @param object a string given the name of the variable to be
 ##' assigned to
 ##' @param expression the expression evaluating into the value to be assigned
-##' @param create shall a cache file be created (default TRUE)
 ##' @return nothing, invoked for side effects (assigning a value to a variable)
 ##' @author Christian Zang
+##' @importFrom digest digest
 ##' @examples
 ##' \dontrun{freeze("a_big_sum", sum(1:1020))}
 ##' @export
-freeze <- function(object, expression, create = TRUE) {
+freeze <- function(object, expression) {
 
   wd <- getwd()
   cache_dir <- file.path(wd, "cache")
   if (!file.exists(cache_dir)) dir.create(cache_dir)
   
   cache_file <- paste(file.path(cache_dir, object), ".rda", sep = "")
-
-  if (file.exists(cache_file)) {
-    is_cached <- TRUE
-  } else {
-    is_cached <- FALSE
-  }
+  sha1_file <- paste(file.path(cache_dir, object), "_expression_sha1.rda", sep = "")
+  is_cached <- file.exists(cache_file)
+  expression_sha1 <- digest(expression, algo = "sha1")
 
   if (is_cached) {
-    
+    message("Reloading object from cache...")
     load(cache_file, envir = .GlobalEnv)
-    message("Loaded variable from cache.")
-    
-  } else {
-    e_assign <- substitute(assign(object, expression, envir = .GlobalEnv),
-                           list(
-                             object = object,
-                             expression = expression
-                             )
-                           )
-
-    eval(e_assign)
-
-    if (create) {
-
-      e_create <- substitute(save(object, file = cache_file),
-                             list(object = object)) 
-      eval(e_create)
-      
+    if (file.exists(sha1_file)) {
+      load(sha1_file, envir = sys.frame())
+    } else {
+      cached_sha1 <- NA
     }
+    if (expression_sha1 == cached_sha1) {
+      message("Done.")
+    } else {
+      message("Done.")
+      warning("SHA1 of call differs from cached version.")
+    }
+  } else {
+    eval(substitute(assign(object, expression, envir = .GlobalEnv),
+                    list(
+                      object = object,
+                      expression = expression
+                    )))
+    eval(substitute(save(object, file = cache_file),
+                    list(object = object)))
+    cached_sha1 <- expression_sha1
+    save(cached_sha1, file = sha1_file)
+    message("Cached object.")
   }
 }
 
