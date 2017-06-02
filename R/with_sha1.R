@@ -25,7 +25,7 @@
   read_fun <- call[[1]]
   fun_name <- deparse(read_fun)
   allowed_funs <- c("read.csv", "read.csv2", "read.rwl", "read.crn",
-                   "nc_open", "read_delim", "read_csv", "read_csv2",
+                   "ncvar_get", "read_delim", "read_csv", "read_csv2",
                    "read.table", "read.delim", "read_table", "fread")
   if (!any(fun_name %in% allowed_funs)) {
     stop_msg <- "Function call must by any of"
