@@ -43,6 +43,8 @@ a_big_sum %<f-% sum(1:2000)
     but the cached object is loaded. It will also store the checksum of
     the expression used to create the object and issue a warning when
     the expression has changed from the cached version of the object.
+    
+    To "forget" an assignment including cached data, use =forget=.
 
 *** Compare checksums during assiging read in file
     To assure that the object created while reading in data is
