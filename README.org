@@ -57,6 +57,11 @@ a_big_sum %<f-% sum(1:2000)
 #+begin_src R
 e %<c-% read_table("some_file.txt")
 #+end_src
+
+*** Requesting objects
+    =request= checks for the existance of an object in the current session.
+    If the object is not defined, it will try to load it into the session
+    from the project's =cache= directory.
     
 *** Loading packages
     As a shortcut for various lines of =library(...)=, =fridge= offers
