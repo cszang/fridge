@@ -38,6 +38,8 @@ request_all <- function(.pattern) {
   if (dir.exists("cache")) {
     cached <- list.files("cache", pattern = "\\.rda$")
     cached <- sub(".rda", "", cached)
+    ## exclude sha1 sums
+    cached <- cached[grep("_expression_sha1$", cached, invert = TRUE)]
     in_cached <- grep(.pattern, cached)
   } else {
     in_cached <- numeric(0)
