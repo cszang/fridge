@@ -2,3 +2,4 @@
 .RData
 .Ruserdata
 cache/*
+.Rproj.user
