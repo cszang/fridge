@@ -51,10 +51,6 @@ e %<c-% read_table("some_file.txt")
 ### Empty cache
 
 All cached objects can be deleted in one go using `empty_cache()`. This will, however, not "forget" the objects in the current workspace.
-    
-### Loading packages
-
-As a shortcut for various lines of `library(...)`, `fridge` offers the function `load_packages()`, which allows for loading various packages in one line of code.
 
 ### Loading library functions
 
