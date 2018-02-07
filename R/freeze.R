@@ -55,10 +55,6 @@ freeze <- function(object, expression) {
   }
 }
 
-##' @rdname freeze
-##' @export
-assignifnotcached <- freeze
-
 ##' Infix variant of \code{freeze}
 ##'
 ##' Does the same as \code{freeze}, but as infix operator.
