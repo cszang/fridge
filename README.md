@@ -13,7 +13,7 @@ Objects that need long computation times to be created are stored as binary file
 ```r
 install.packages("devtools")
 library(devtools)
-install_github("fridge", "znag")
+install_github("cszang/fridge")
 ```
 
 ## Setup
@@ -36,9 +36,9 @@ This will assign `sum(1:2000)` to a new object `a_big_sum`, and cache it for lat
     
 To "forget" an assignment including cached data, use `forget()`.
 
-### Compare checksums during assiging read in file
+### Compare checksums during assigning read in file
 
-To assure that the object created while reading in data is identical to previous runs of the analysis, the SHA1 sum of the object can be stored and compared to the previous version. If the SHA1 of the current object diverges from the SHA1 sum of the same object from a previous run, a warning is issued and the old SHA1 sum is archived.
+To assure that the object created while reading in data is identical to previous runs of the analysis, the SHA1 sum of the object can be stored and compared to the previous version. If the SHA1 of the current object diverges from the SHA1 sum of the same object from a previous run, a warning is issued and the old SHA1 sum is archived. This is probably most helpful when your data is too big for Git(Hub), Git LFS is not an options, or the same big data files are used for multiple projects (e.g., large climate data sets of several GB size).
 
 ```r
 e %<c-% read_table("some_file.txt")
