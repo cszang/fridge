@@ -1,5 +1,4 @@
 export(freeze)
-export(thaw)
 export(request)
 export(request_all)
 export(forget)
