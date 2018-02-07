@@ -31,6 +31,3 @@ permanently cached version is used.
 \examples{
 \dontrun{freeze("a_big_sum", sum(1:1020))}
 }
-\author{
-Christian Zang
-}

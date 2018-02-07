@@ -7,7 +7,6 @@
 ##' @param str a character vector specifying the lib files to source,
 ##' defaults to "all", i.e., all R-files inside /lib will be sourced
 ##' @return nothing, invoked for side effects (sourcing of files)
-##' @author Christian Zang
 ##' @examples
 ##' \dontrun{load_lib()}
 ##' @export

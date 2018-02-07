@@ -22,6 +22,3 @@ directory of project tree by name.
 \examples{
 \dontrun{thaw("someobject")}
 }
-\author{
-Christian Zang
-}

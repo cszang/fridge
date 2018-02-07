@@ -11,7 +11,6 @@
 ##' assigned to
 ##' @param expression the expression evaluating into the value to be assigned
 ##' @return nothing, invoked for side effects (assigning a value to a variable)
-##' @author Christian Zang
 ##' @importFrom digest digest
 ##' @examples
 ##' \dontrun{freeze("a_big_sum", sum(1:1020))}

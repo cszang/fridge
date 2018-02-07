@@ -24,6 +24,3 @@ directory of project tree, either by name (such as \code{c("lib1",
 \examples{
 \dontrun{load_lib()}
 }
-\author{
-Christian Zang
-}
