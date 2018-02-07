@@ -5,8 +5,6 @@
 \title{Assign value to variable if it is not cached}
 \usage{
 freeze(object, expression)
-
-assignifnotcached(object, expression)
 }
 \arguments{
 \item{object}{a string given the name of the variable to be

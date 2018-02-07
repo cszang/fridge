@@ -40,24 +40,3 @@ load_lib <- function(str = "all", ...) {
     }
   }
 }
-
-##' Load cached objects from /cache directory of project tree
-##'
-##' To save time and typing, this function will load rda files from /cache
-##' directory of project tree by name.
-##' @title Load cached objects from /cache directory of project tree
-##' @param str Name of object saved rda file
-##' @return nothing, invoked for side effects
-##' @author Christian Zang
-##' @examples
-##' \dontrun{thaw("someobject")}
-##' @export
-thaw <- function(str) {
-  p <- paste(file.path(getwd(), "cache", str), ".rda", sep = "")
-  if (file.exists(p)) {
-    load(p, envir = .GlobalEnv)
-    message(paste("Loaded object", str, "from cache."))
-  } else {
-    warning("Cached file does not exist.")
-  }
-}
