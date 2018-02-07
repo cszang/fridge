@@ -2,7 +2,6 @@
 % Please edit documentation in R/freeze.R
 \name{freeze}
 \alias{freeze}
-\alias{assignifnotcached}
 \title{Assign value to variable if it is not cached}
 \usage{
 freeze(object, expression)
