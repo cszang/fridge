@@ -10,7 +10,9 @@ request(.name)
 \item{.name}{String giving the name of the requested object}
 }
 \value{
-Nothing, invoked for side effects (requesting an object)
+Returns TRUE if object could be reloaded from cache or was already
+  present in workspace, or FALSE otherwise. Mainly invoked for side effects
+  (requesting an object).
 }
 \description{
 This function is a wrapper around \link{\code{thaw}}, that checks if an

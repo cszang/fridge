@@ -1,8 +1,8 @@
 Package: fridge
 Type: Package
 Title: Data analyis project management with R
-Version: 0.9
-Date: 2018-02-06
+Version: 0.9.1
+Date: 2018-02-13
 Author: Christian Zang
 Maintainer: Christian Zang <christian.zang@wzw.tum.de>
 Depends:
