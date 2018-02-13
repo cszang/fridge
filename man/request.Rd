@@ -10,7 +10,7 @@ request(.name)
 \item{.name}{String giving the name of the requested object}
 }
 \value{
-Returns TRUE if object could be reloaded from cache or was already
+Silently return TRUE if object could be reloaded from cache or was already
   present in workspace, or FALSE otherwise. Mainly invoked for side effects
   (requesting an object).
 }

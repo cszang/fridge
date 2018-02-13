@@ -24,7 +24,7 @@ thaw <- function(str) {
 #' object from the project's cache.
 #' @param .name String giving the name of the requested object
 #'
-#' @return Returns TRUE if object could be reloaded from cache or was already
+#' @return Silently return TRUE if object could be reloaded from cache or was already
 #'   present in workspace, or FALSE otherwise. Mainly invoked for side effects
 #'   (requesting an object).
 #' @export
@@ -36,15 +36,15 @@ request <- function(.name) {
       cached <- sub(".rda", "", cached)
       if (any(cached == .name)) {
         thaw(.name)
-        return(TRUE)
+        invisible(TRUE)
       } else {
         message("Object is neither defined nor cached.")
-        return(FALSE)
+        invisible(FALSE)
       }
     }
   } else {
     cat(sprintf("Object %s from workspace.\n", .name))
-    return(TRUE)
+    invisible(TRUE)
   }
 }
 
