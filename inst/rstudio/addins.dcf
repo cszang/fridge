@@ -1,0 +1,4 @@
+Name: Insert %<f-%
+Description: Inserts `%<f-%` at the cursor position.
+Binding: insert_freezer
+Interactive: false
