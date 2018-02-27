@@ -23,12 +23,13 @@ thaw <- function(str) {
 #' object is currently defined in the workspace. If not, it tries to load the
 #' object from the project's cache.
 #' @param .name String giving the name of the requested object
+#' @param .else Expression: what to do if requesting fails
 #'
 #' @return Silently return TRUE if object could be reloaded from cache or was already
 #'   present in workspace, or FALSE otherwise. Mainly invoked for side effects
 #'   (requesting an object).
 #' @export
-request <- function(.name) {
+request <- function(.name, .else = NULL) {
   if (!exists(.name)) {
     # look in cache
     if (dir.exists("cache")) {
@@ -38,7 +39,12 @@ request <- function(.name) {
         thaw(.name)
         invisible(TRUE)
       } else {
-        message("Object is neither defined nor cached.")
+        if (!is.null(.else)) {
+          message("Object is neither defined nor cached: evaluating fallback expression.")
+          eval(.else)
+        } else {
+          message("Object is neither defined nor cached.")
+        }
         invisible(FALSE)
       }
     }

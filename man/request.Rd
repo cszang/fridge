@@ -4,10 +4,12 @@
 \alias{request}
 \title{Request object from session or cache}
 \usage{
-request(.name)
+request(.name, .else = NULL)
 }
 \arguments{
 \item{.name}{String giving the name of the requested object}
+
+\item{.else}{Expression: what to do if requesting fails}
 }
 \value{
 Silently return TRUE if object could be reloaded from cache or was already
