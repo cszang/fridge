@@ -47,6 +47,10 @@ request <- function(.name, .else = NULL) {
         }
         invisible(FALSE)
       }
+    } else {
+      message("Object is neither defined nor cached: creating cache directory and evaluating fallback expression.")
+      dir.create("cache")
+      eval(.else)
     }
   } else {
     cat(sprintf("Object %s from workspace.\n", .name))
