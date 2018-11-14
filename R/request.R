@@ -19,7 +19,7 @@ thaw <- function(str) {
 
 #' Request object from session or cache
 #'
-#' This function is a wrapper around \link{\code{thaw}}, that checks if an
+#' This function is a wrapper around \code{thaw}, that checks if an
 #' object is currently defined in the workspace. If not, it tries to load the
 #' object from the project's cache.
 #' @param .name String giving the name of the requested object
@@ -60,7 +60,7 @@ request <- function(.name, .else = NULL) {
 
 ##' Request objects by pattern from session or cache
 ##'
-##' This functions works like \link{\code{request}}, but takes a
+##' This functions works like \code{request}, but takes a
 ##'   regular expression to match against objects in workspace and
 ##'   cache.
 ##' @param .pattern a regular expression as string

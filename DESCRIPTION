@@ -12,4 +12,4 @@ Imports:
 Description: Some useful things for data projects, like caching data
 License: GPL-3
 LazyLoad: yes
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

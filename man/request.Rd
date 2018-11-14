@@ -17,7 +17,7 @@ Silently return TRUE if object could be reloaded from cache or was already
   (requesting an object).
 }
 \description{
-This function is a wrapper around \link{\code{thaw}}, that checks if an
+This function is a wrapper around \code{thaw}, that checks if an
 object is currently defined in the workspace. If not, it tries to load the
 object from the project's cache.
 }

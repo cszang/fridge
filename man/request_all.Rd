@@ -13,7 +13,7 @@ request_all(.pattern)
 Nothing, invoked for side effects (requesting objects)
 }
 \description{
-This functions works like \link{\code{request}}, but takes a
+This functions works like \code{request}, but takes a
   regular expression to match against objects in workspace and
   cache.
 }
